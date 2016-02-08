@@ -1,0 +1,32 @@
+{
+  "name": "seer",
+  "version": "0.0.1",
+  "description": "A SCSS framework",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomekbuszewski/Seer.git"
+  },
+  "keywords": [
+    "scss",
+    "framework",
+    "css"
+  ],
+  "author": "Tomek Buszewski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomekbuszewski/Seer/issues"
+  },
+  "homepage": "https://github.com/tomekbuszewski/Seer#readme",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-csso": "^1.0.1",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}
