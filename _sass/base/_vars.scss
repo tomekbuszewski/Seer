@@ -17,6 +17,7 @@ $base-line-height:					'';
 
 // Grid
 //——————————————————————————————————————————————————
-$columns:										'';
-$gutters: 									(xs: 5px, sm: 10px, md: 15px, lg: 20px);
+$columns:										12;
+$containers:								(xs: 100%, sm: 640px, md: 960px, lg: 1280px);
+$gutters: 									(xs: 5px, sm: 10px, md: 20px, lg: 30px);
 $breakpoints:								(xs: 0, sm: 640px, md: 960px, lg: 1280px);

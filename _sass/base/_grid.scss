@@ -1,0 +1,43 @@
+/*! Grid */
+*, * > * {
+	box-sizing: border-box;
+}
+
+.container {
+	margin: auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+@each $name, $size in $breakpoints {
+	@if($size != 0) {
+		@media(min-width: $size) {
+			.container {
+				max-width: map-get($containers, $name);
+			}
+
+			@for $i from 1 through $columns {
+				.col-#{$name}-#{$i} {
+					$width : ($i / $columns) * 100%;
+					$gutter : map-get($gutters, $name);
+					@if($gutter == 0) {
+						width: $width;
+					} @else {
+						width: calc(#{$width} - #{$gutter});
+					}
+				}
+			}
+		}
+	} @else {
+		.container {
+			max-width: map-get($containers, 'xs');
+		}
+
+		@for $i from 1 through $columns {
+			.col-#{$i} {
+				width: ($i / $columns) * 100%;
+			}
+		}
+	}
+}
