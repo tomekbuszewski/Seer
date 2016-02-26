@@ -5,32 +5,48 @@
 
 .container {
 	margin: auto;
+	max-width: 100%;
+
+	@each $name, $size in $breakpoints {
+		@if($size != 0) {
+			@media(min-width: $size) {
+				max-width: map-get($containers, $name);
+			}
+		}
+	}
 }
 
 .columns {
 	display: flex;
 	flex-flow: row wrap;
+	margin-left: -(map-get($gutters, xs)/2);
+	margin-right: -(map-get($gutters, xs)/2);
+
+	@each $name, $size in $breakpoints {
+		@if($size != 0) {
+			@media(min-width: $size) {
+				margin-left: -(map-get($gutters, $name)/2);
+				margin-right: -(map-get($gutters, $name)/2);
+			}
+		}
+	}
+}
+
+*[class^="col-"], *[class*=" col-"] {
+	min-height: 1px;
+	display: block;
+	flex: none;
+	@each $name, $size in $breakpoints {
+		@media(min-width: $size) {
+			margin-left: (map-get($gutters, $name)/2);
+			margin-right: (map-get($gutters, $name)/2);
+		}
+	}
 }
 
 @each $name, $size in $breakpoints {
 	@if($size != 0) {
 		@media(min-width: $size) {
-			.container {
-				max-width: map-get($containers, $name);
-			}
-
-			.columns {
-				margin-left: -(map-get($gutters, $name)/2);
-				margin-right: -(map-get($gutters, $name)/2)
-			}
-
-			*[class^="col-#{$name}"], *[class*=" col-#{$name}"] {
-				margin-left: (map-get($gutters, $name)/2);
-				margin-right: (map-get($gutters, $name)/2);
-				min-height: 1px;
-				display: block;
-			}
-
 			.col-#{$name}-auto {
 				flex: 1;
 				max-width: 100%;
@@ -40,20 +56,16 @@
 				.col-#{$name}-#{$i} {
 					$width : ($i / $columns) * 100%;
 					$gutter: map-get($gutters, $name);
-					max-width: calc(#{$width} - #{$gutter});
 					width: calc(#{$width} - #{$gutter});
-					flex: none;
 				}
 			}
 		}
 	} @else {
-		.container {
-			max-width: map-get($containers, 'xs');
-		}
-
 		@for $i from 1 through $columns {
 			.col-#{$i} {
-				width: ($i / $columns) * 100%;
+				$width : ($i / $columns) * 100%;
+				$gutter: map-get($gutters, xs);
+				width: calc(#{$width} - #{$gutter});
 			}
 		}
 	}
