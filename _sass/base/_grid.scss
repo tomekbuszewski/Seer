@@ -30,7 +30,7 @@
 			}
 
 			.col-#{$name}-auto {
-				flex: 1;
+				flex: 1 0;
 			}
 
 			@for $i from 1 through $columns {
@@ -38,6 +38,7 @@
 					$width : ($i / $columns) * 100%;
 					$gutter: map-get($gutters, $name);
 					width: calc(#{$width} - #{$gutter});
+					flex: none;
 				}
 			}
 		}
