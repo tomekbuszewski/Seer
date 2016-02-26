@@ -1,0 +1,41 @@
+//——————————————————————————————————————————————————//
+// Forms
+//——————————————————————————————————————————————————//
+
+.form {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	$root: &;
+
+	&__group {
+		margin-bottom: calculateRem($base-font-size);
+	}
+
+	&__label {
+	}
+
+	&__input,
+	&__textarea,
+	&__select,
+	&__button {
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		border: 1px solid $leading;
+		border-radius: $base-border-radius;
+	}
+
+	&__button {
+		width: auto;
+		background: none;
+		border: 0;
+		outline: 0;
+	}
+
+	&--stacked {
+		#{$root}__label {
+			text-align: right;
+		}
+	}
+}
