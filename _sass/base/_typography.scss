@@ -45,3 +45,35 @@ h5 {
 h6 {
 	@include font-size(map-get($headers, h6));
 }
+
+// Paragraphs
+//——————————————————————————————————————————————————
+p {
+	margin: 0;
+	margin-bottom: calculateRem($base-font-size);
+	padding: 0;
+}
+
+// Columns
+//——————————————————————————————————————————————————
+.text-columns {
+	break-inside: avoid;
+
+	@each $name, $size in $breakpoints {
+		@media(min-width: $size) {
+			column-gap: map-get($gutters, $name);
+		}
+	}
+
+	&--two {
+		column-count: 2;
+	}
+
+	&--three {
+		column-count: 3;
+	}
+
+	&--four {
+		column-count: 4;
+	}
+}
