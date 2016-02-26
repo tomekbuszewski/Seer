@@ -5,9 +5,11 @@
 
 .container {
 	margin: auto;
+}
+
+.columns {
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: space-around;
 }
 
 @each $name, $size in $breakpoints {
@@ -17,15 +19,25 @@
 				max-width: map-get($containers, $name);
 			}
 
+			.columns {
+				margin-left: -(map-get($gutters, $name)/2);
+				margin-right: -(map-get($gutters, $name)/2);
+			}
+
+			*[class^="col-#{$name}"], *[class*=" col-#{$name}"] {
+				margin-left: (map-get($gutters, $name)/2);
+				margin-right: (map-get($gutters, $name)/2);
+			}
+
+			.col-#{$name}-auto {
+				flex: 1;
+			}
+
 			@for $i from 1 through $columns {
 				.col-#{$name}-#{$i} {
 					$width : ($i / $columns) * 100%;
-					$gutter : map-get($gutters, $name);
-					@if($gutter == 0) {
-						width: $width;
-					} @else {
-						width: calc(#{$width} - #{$gutter});
-					}
+					$gutter: map-get($gutters, $name);
+					width: calc(#{$width} - #{$gutter});
 				}
 			}
 		}

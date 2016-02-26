@@ -6,14 +6,27 @@
 //——————————————————————————————————————————————————
 $base:											#111111;
 $white:											#fafafa;
-$leading:										'';
+$leading:										#2B4C7E;
+$sections:									#DCE0E6;
+
+// Visuals
+//——————————————————————————————————————————————————
+$base-border-radius:				3px;
 
 // Typography
 //——————————————————————————————————————————————————
-$font-header:								'';
-$font-body:									'';
-$base-font-size:						'';
-$base-line-height:					'';
+$font-header:								Georgia, serif;
+$font-body:									Helvetica, Arial, sans-serif;
+$base-font-size:						12px;
+$base-line-height:					1.5;
+$headers:										(
+															h1: ($base-font-size * 4),
+															h2: ($base-font-size * 3),
+															h3: ($base-font-size * 2),
+															h4: ($base-font-size * 1),
+															h5: ($base-font-size * 1),
+															h6: ($base-font-size * 1),
+														);
 
 // Grid
 //——————————————————————————————————————————————————
