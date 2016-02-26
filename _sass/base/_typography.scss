@@ -50,9 +50,25 @@ h6 {
 // Paragraphs
 //——————————————————————————————————————————————————
 p {
-	margin: 0;
-	margin-bottom: calculateRem($base-font-size);
+	margin: 0 0 calculateRem($base-font-size) 0;
 	padding: 0;
+}
+
+// Lists
+//——————————————————————————————————————————————————
+ol, ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bullet-list {
+	list-style: disc inside;
+	margin-bottom: calculateRem($base-font-size);
+}
+
+.ordered-list {
+	list-style: decimal inside;
 }
 
 // Columns
