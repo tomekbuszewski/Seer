@@ -21,12 +21,7 @@
 
 			.columns {
 				margin-left: -(map-get($gutters, $name)/2);
-				margin-right: -(map-get($gutters, $name)/2);
-
-				.columns {
-					margin-left: 0;
-					margin-right: 0;
-				}
+				margin-right: -(map-get($gutters, $name)/2)
 			}
 
 			*[class^="col-#{$name}"], *[class*=" col-#{$name}"] {

@@ -9,5 +9,9 @@
 		padding: 10px;
 		border-radius: $base-border-radius;
 		background-color: $sections;
+
+		&--parent {
+			background: darken($sections, 10%);
+		}
 	}
 }
