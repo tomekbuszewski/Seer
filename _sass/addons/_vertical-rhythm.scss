@@ -1,0 +1,7 @@
+/* Vertical rhythm */
+body {
+	background-image: linear-gradient(to bottom, hsla(200, 100%, 50%, .3) 1px, transparent 1px);
+  background-position: left -1px;
+  background-repeat: repeat;
+  background-size: $base-font-size * $base-line-height $base-font-size * $base-line-height;
+}

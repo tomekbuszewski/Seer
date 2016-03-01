@@ -57,6 +57,7 @@
 					$width : ($i / $columns) * 100%;
 					$gutter: map-get($gutters, $name);
 					width: calc(#{$width} - #{$gutter});
+					flex: none;
 				}
 			}
 		}
@@ -66,6 +67,7 @@
 				$width : ($i / $columns) * 100%;
 				$gutter: map-get($gutters, xs);
 				width: calc(#{$width} - #{$gutter});
+				flex: none;
 			}
 		}
 	}
