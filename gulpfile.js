@@ -24,7 +24,10 @@ gulp.task('sass', function() {
 		.pipe(sourcemaps.write('maps', {
 			sourceRoot: cssDir
 		}))
-		.pipe(gulp.dest(cssTempDir));
+		.pipe(prefix('last 2 version'))
+		.pipe(csso())
+		.pipe(gulp.dest(cssDir));
+		// .pipe(gulp.dest(cssTempDir));
 });
 
 // CSS
@@ -46,10 +49,10 @@ gulp.task('browser-sync', function() {
 		}
 	});
 
-	gulp.watch(sassDir+'/**', ['css']);
+	gulp.watch(sassDir+'/**', ['sass']);
 	gulp.watch(cssDir+'/**', browserSync.reload);
-	gulp.watch(cssTempDir+'/**', ['css']);
+	// gulp.watch(cssTempDir+'/**', ['css']);
 	gulp.watch('*.html').on('change', browserSync.reload);
 });
 
-gulp.task('default', ['css','browser-sync']);
+gulp.task('default', ['sass','browser-sync']);
