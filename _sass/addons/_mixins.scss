@@ -13,3 +13,9 @@
   font-size: $size;
   font-size: calculateRem($size);
 }
+
+// Columns
+//——————————————————————————————————————————————————
+@mixin columns($count) {
+	column-count: $count;
+}

@@ -81,16 +81,4 @@ ol, ul {
 			column-gap: map-get($gutters, $name);
 		}
 	}
-
-	&--two {
-		column-count: 2;
-	}
-
-	&--three {
-		column-count: 3;
-	}
-
-	&--four {
-		column-count: 4;
-	}
 }
