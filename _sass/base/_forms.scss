@@ -3,46 +3,92 @@
 //——————————————————————————————————————————————————//
 
 .form {
-	border: 0;
-	margin: 0;
-	padding: 0;
-	$root: &;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  $root: &;
 
-	&__group {
-		margin-bottom: calculateRem($base-font-size);
-	}
+  &__group {
+    margin-bottom: calculateRem($base-font-size);
+  }
 
-	&__label {
-	}
+  &__input,
+  &__textarea,
+  &__select,
+  &__button {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    border: 1px solid $leading;
+    border-radius: $base-border-radius;
+  }
 
-	&__input,
-	&__textarea,
-	&__select,
-	&__button {
-		padding: 0;
-		margin: 0;
-		width: 100%;
-		border: 1px solid $leading;
-		border-radius: $base-border-radius;
-	}
+  &__checkbox,
+  &__radio {
+    overflow: hidden;
+    position: relative;
+    display: none;
 
-	&__checkbox,
-	&__radio {
-		vertical-align: text-top;
-	}
+    & + label {
+      padding-left: 25px;
+      position: relative;
 
-	&__button {
-		width: auto;
-		background: none;
-		border: 0;
-		outline: 0;
-	}
+      &:after,
+      &:before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 3px;
+        left: 0;
+        transition: opacity $transition-time $transition-style;
+      }
 
-	@media(min-width: map_get($breakpoints, sm)) {
-		&--stacked {
-			#{$root}__label {
-				text-align: right;
-			}
-		}
-	}
+      &:after {
+        width: 12px;
+        height: 12px;
+        border: 1px solid $leading;
+      }
+
+      &:before {
+        width: 8px;
+        height: 8px;
+        top: 6px;
+        left: 3px;
+        background: $leading;
+        opacity: 0;
+      }
+    }
+
+    &:checked {
+      & + label {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__radio {
+    & + label {
+      &:after,
+      &:before {
+        border-radius: 100%;
+      }
+    }
+  }
+
+  &__button {
+    width: auto;
+    background: none;
+    border: 0;
+    outline: 0;
+  }
+
+  @media(min-width: map_get($breakpoints, sm)) {
+    &--stacked {
+      #{$root}__label {
+        text-align: right;
+      }
+    }
+  }
 }

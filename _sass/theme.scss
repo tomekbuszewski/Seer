@@ -1,22 +1,21 @@
 //---------------------------------------------------//
 // Theme
 //---------------------------------------------------//
-
 @import 'vars';
 @import 'addons/mixins';
 
 .page-section {
-	margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 .grid {
-	&__column {
-		padding: 10px;
-		border-radius: $base-border-radius;
-		background-color: $sections;
+  &__column {
+    padding: 10px;
+    border-radius: $base-border-radius;
+    background-color: $sections;
 
-		&--parent {
-			background: darken($sections, 10%);
-		}
-	}
+    &--parent {
+      background: darken($sections, 10%);
+    }
+  }
 }

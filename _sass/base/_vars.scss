@@ -12,6 +12,9 @@ $sections:									#DCE0E6;
 // Visuals
 //——————————————————————————————————————————————————
 $base-border-radius:				3px;
+$transition-time:           .25s;
+$transition-style:          ease-out;
+$transition-bezier:         cubic-bezier(.6,-0.28,.53,1.36);
 
 // Typography
 //——————————————————————————————————————————————————

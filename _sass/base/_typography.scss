@@ -1,84 +1,91 @@
 /*! Typography */
-
 // Base
 //——————————————————————————————————————————————————
+
 html {
-	font-size: $base-font-size;
+  font-size: $base-font-size;
 }
 
 body {
-	@include font-size($base-font-size);
-	line-height: $base-line-height;
-	font-family: $font-body;
-	color: $base;
+  @include font-size($base-font-size);
+  line-height: $base-line-height;
+  font-family: $font-body;
+  color: $base;
 }
-
 // Headers
 //——————————————————————————————————————————————————
-h1, h2, h3, h4, h5, h6 {
-	font-weight: 800;
-	margin: 0;
-	padding: 0;
-	line-height: 1;
-	font-family: $font-header;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-family: $font-header;
 }
 
 h1 {
-	@include font-size(map-get($headers, h1));
+  @include font-size(map-get($headers, h1));
 }
 
 h2 {
-	@include font-size(map-get($headers, h2));
+  @include font-size(map-get($headers, h2));
 }
 
 h3 {
-	@include font-size(map-get($headers, h3));
+  @include font-size(map-get($headers, h3));
 }
 
 h4 {
-	@include font-size(map-get($headers, h4));
+  @include font-size(map-get($headers, h4));
 }
 
 h5 {
-	@include font-size(map-get($headers, h5));
+  @include font-size(map-get($headers, h5));
 }
 
 h6 {
-	@include font-size(map-get($headers, h6));
+  @include font-size(map-get($headers, h6));
 }
-
 // Paragraphs
 //——————————————————————————————————————————————————
-p {
-	margin: 0 0 calculateRem($base-font-size) 0;
-	padding: 0;
-}
 
+p {
+  margin: 0 0 calculateRem($base-font-size);
+  padding: 0;
+}
 // Lists
 //——————————————————————————————————————————————————
-ol, ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .bullet-list {
-	list-style: disc inside;
-	margin-bottom: calculateRem($base-font-size);
+  list-style: disc inside;
+  margin-bottom: calculateRem($base-font-size);
 }
 
 .ordered-list {
-	list-style: decimal inside;
+  list-style: decimal inside;
 }
-
 // Columns
 //——————————————————————————————————————————————————
-.text-columns {
-	break-inside: avoid;
 
-	@each $name, $size in $breakpoints {
-		@media(min-width: $size) {
-			column-gap: map-get($gutters, $name);
-		}
-	}
+.text-columns {
+  break-inside: avoid;
+
+  @each $name,
+  $size in $breakpoints {
+    @media(min-width: $size) {
+      column-gap: map-get($gutters, $name);
+    }
+  }
 }
