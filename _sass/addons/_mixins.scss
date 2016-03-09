@@ -3,6 +3,7 @@
 //——————————————————————————————————————————————————//
 // REM font size
 //——————————————————————————————————————————————————
+
 @function calculateRem($size) {
   $remSize: $size / $base-font-size;
   @return $remSize * 1rem;
@@ -12,9 +13,9 @@
   font-size: $size;
   font-size: calculateRem($size);
 }
-
 // Columns
 //——————————————————————————————————————————————————
+
 @mixin columns($count) {
   column-count: $count;
 }
